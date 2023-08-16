@@ -28,9 +28,12 @@ const renderer = new THREE.WebGLRenderer({
     canvas: canvas
 })
 renderer.setSize(sizes.width, sizes.height)
-
+const currentTime = date.
 // Animations
 const tick = () => {
+
+	// Time
+	const 
 	// Update objects
 	mesh.rotation.y += 0.01;
 	mesh.rotation.x += 0.01;
