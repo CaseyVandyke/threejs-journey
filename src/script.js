@@ -9,14 +9,14 @@ const scene = new THREE.Scene();
 
 // Object
 const geometry = new THREE.BoxGeometry(1, 1, 1);
-const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
 
 // Sizes
 const sizes = {
-	width: 800,
-	height: 600
+    width: 800,
+    height: 600
 }
 
 // Camera
@@ -26,7 +26,7 @@ scene.add(camera);
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({
-	canvas: canvas
+    canvas: canvas
 });
 renderer.setSize(sizes.width, sizes.height);
 
@@ -34,20 +34,25 @@ renderer.setSize(sizes.width, sizes.height);
 // const clock = new THREE.Clock();
 
 gsap.to(mesh.position, { duration: 1, delay: 1, x: 2 });
-gsap.to(mesh.position, { duration: 1, delay: 2, x: -2 });
+gsap.to(mesh.position, { duration: 1, delay: 2, y: 2 });
+gsap.to(mesh.position, { duration: 1, delay: 3, x: -2 });
+gsap.to(mesh.position, { duration: 1, delay: 4, y: -2 });
+gsap.to(mesh.position, { duration: 1, delay: 5, x: 2 });
+gsap.to(mesh.position, { duration: 1, delay: 6, y: 0 });
+gsap.to(mesh.position, { duration: 1, delay: 7, x: 0 });
 
 // Animations
 const tick = () => {
 
-	// Time
-	// const elapsedTime = clock.getElapsedTime();
-	// Update Objects
-	// camera.position.y = Math.sin(elapsedTime);
-	// camera.position.x = Math.cos(elapsedTime);
-	// Render
-	renderer.render(scene, camera);
+    // Time
+    // const elapsedTime = clock.getElapsedTime();
+    // Update Objects
+    // camera.position.y = Math.sin(elapsedTime);
+    // camera.position.x = Math.cos(elapsedTime);
+    // Render
+    renderer.render(scene, camera);
 
-	window.requestAnimationFrame(tick);
+    window.requestAnimationFrame(tick);
 };
 
 tick();
